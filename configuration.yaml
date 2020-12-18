@@ -575,42 +575,8 @@ google:
 
 
 lovelace:
-  resources:
-    - url: /www/community_plugin/mini-graph-card/mini-graph-card-bundle.js
-      type: module
+  mode: storage
 
-    - type: module
-      url: /www/community_plugin/love-lock-card/love-lock-card.js
-
-    - url: /www/community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
-      type: js
-
-    - url: /www/community_plugin/weather-card/weather-card.js
-      type: module
-
-    - url: /www/community_plugin/bar-card/bar-card.js
-      type: js
-
-    - type: js
-      url: /www/community_plugin/auto-entities/auto-entities.js
-
-    - type: js
-      url: /www/community_plugin/delijn-card/delijn-card.js
-
-    - type: js
-      url: /local/card-tools.js
-
-    - url: /www/community_plugin/custom-header/custom-header.js
-      type: module
-
-    - url: /www/community_plugin/air-visual-card/air-visual-card.js
-      type: js
-
-    - url: /www/community_plugin/spotify-card/spotify-card.js
-      type: module
-
-    - url: /www/community_plugin/button-card/button-card.js
-      type: module
 
 life360:
   accounts:

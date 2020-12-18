@@ -1,0 +1,3532 @@
+views:
+  - badges: []
+    padding-left: 5px;
+    cards:
+      - cards:
+          - cards:
+              - cards:
+                  - cards:
+                      - cards:
+                          - image: /local/images/dell.png
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              ha-card>img {
+                                height: 120px;
+                                width: 120px;
+                                margin-left: auto ;
+                                margin-right: auto ;
+                              }
+                            type: picture
+                        type: vertical-stack
+                      - cards:
+                          - entity: sensor.home_assistant_v2_db
+                            entity_config: true
+                            max: 4096
+                            name: Db Size v2
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.ha_restart_time
+                            entity_config: true
+                            max: 2000
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.potential_breaking_changes
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                            type: 'custom:bar-card'
+                        type: vertical-stack
+                    type: horizontal-stack
+                  - entities:
+                      - entity: sensor.disk_use_percent_home
+                        name: Disk Use
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 25
+                          - color: Orange
+                            from: 26
+                            to: 50
+                          - color: Red
+                            from: 51
+                            to: 100
+                      - entity: sensor.memory_use
+                        max: 4096
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 25
+                          - color: Orange
+                            from: 26
+                            to: 50
+                          - color: Red
+                            from: 51
+                            to: 100
+                    stack: horizontal
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        border-radius: 5px;
+                        margin-right: 5px;
+                        }
+                      .contentbar-direction-right{
+                        border-radius: 5px;
+                        }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                      bar-card-card{
+                        border-radius: 5px;
+                        margin: 4px;
+                        }
+                    type: 'custom:bar-card'
+                  - entities:
+                      - entity: sensor.processor_use_percent
+                        name: Processor Use
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 25
+                          - color: Orange
+                            from: 26
+                            to: 50
+                          - color: Red
+                            from: 51
+                            to: 100
+                      - entity: sensor.cpu_temp
+                        name: CPU Temp
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 45
+                          - color: Orange
+                            from: 46
+                            to: 65
+                          - color: Red
+                            from: 66
+                            to: 100
+                    stack: horizontal
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        border-radius: 5px;
+                        margin-right: 5px;
+                        }
+                      .contentbar-direction-right{
+                        border-radius: 5px;
+                        }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                      bar-card-card{
+                        border-radius: 5px;
+                        margin: 4px;
+                        }
+                    type: 'custom:bar-card'
+                  - entities:
+                      - entity: sensor.swap_use_percent
+                        name: SWAP Use
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 25
+                          - color: Orange
+                            from: 26
+                            to: 50
+                          - color: Red
+                            from: 51
+                            to: 100
+                      - entity: sensor.time_online
+                        severity:
+                          - color: Green
+                            from: 0
+                            to: 100
+                    stack: horizontal
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        border-radius: 5px;
+                        margin-right: 5px;
+                        }
+                      .contentbar-direction-right{
+                        border-radius: 5px;
+                        }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                      bar-card-card{
+                        border-radius: 5px;
+                        margin: 4px;
+                        }in: 4px;
+                       }
+                    type: 'custom:bar-card'
+                title: Hassio Server
+                type: 'custom:vertical-stack-in-card'
+              - entities:
+                  - entity: sensor.restafval
+                  - entity: sensor.pmd
+                  - entity: sensor.glas
+                  - entity: sensor.gft
+                show_header_toggle: false
+                title: Ophaalkalender Ibogem
+                type: entities
+            type: vertical-stack
+          - cards:
+              - type: calendar
+                entities:
+                  - calendar.thuis
+                  - calendar.chiro
+                  - calendar.1ea_u2
+                  - calendar.2ea_2cl
+                  - calendar.3ea_cl2
+              - type: entities
+                entities:
+                  - entity: binary_sensor.minecraft_bazel_status
+                  - entity: sensor.minecraft_bazel_players_max
+                  - entity: sensor.minecraft_bazel_players_online
+            type: vertical-stack
+          - cards:
+              - entities:
+                  - device_tracker.life360_amaury
+                  - sensor.battery_amaury
+                  - device_tracker.life360_jurgen
+                  - sensor.battery_jurgen
+                  - device_tracker.life360_valerie_verschooren
+                  - sensor.battery_valerie
+                  - device_tracker.life360_lieve_van_goeye
+                  - sensor.battery_lieve
+                show_header_toggle: false
+                title: Alerts
+                type: entities
+              - type: vertical-stack
+                title: Pi-Hole
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: picture
+                        image: >-
+                          https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png
+                        style: |-
+                          ha-card>img {
+                          height: 100px;
+                          width: 100px;
+                          left: 0;
+                          right: 0;
+                          position: absolute;
+                          top: 0;
+                          bottom: 0;
+                          margin: auto;
+                          }
+                        card_size: 4
+                      - type: 'custom:mini-graph-card'
+                        entities:
+                          - sensor.pi_hole_ads_blocked_today
+                        show:
+                          labels: true
+                        name: Blocked
+                        color_thresholds:
+                          - value: 20
+                            color: '#f39c12'
+                          - value: 21
+                            color: '#d35400'
+                          - value: 21.5
+                            color: '#c0392b'
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.pi_hole
+                        show_state: false
+                        show_icon: false
+                        show_entity_picture: true
+                        name: Status
+                        state:
+                          - value: 'on'
+                            color: 'rgb(4, 194, 29)'
+                            icon: 'mdi:cube-outline'
+                          - value: 'off'
+                            color: 'rgb(194, 4, 4)'
+                        color_type: card
+                        entity_picture: /local/images/pi_hole.png
+                        style: |-
+                          ha-card{
+                            height: 100%;
+                          }
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:mini-graph-card'
+                        entities:
+                          - sensor.pi_hole_dns_unique_clients
+                        show:
+                          labels: true
+                        name: Clients
+                        color_thresholds:
+                          - value: 20
+                            color: '#f39c12'
+                          - value: 21
+                            color: '#d35400'
+                          - value: 21.5
+                            color: '#c0392b'
+                      - type: 'custom:mini-graph-card'
+                        entities:
+                          - sensor.pi_hole_dns_queries_today
+                        show:
+                          labels: true
+                        name: DNS Queries
+                        color_thresholds:
+                          - value: 20
+                            color: '#f39c12'
+                          - value: 21
+                            color: '#d35400'
+                          - value: 21.5
+                            color: '#c0392b'
+            type: vertical-stack
+          - cards:
+              - entities:
+                  - binary_sensor.cpu_high
+                  - binary_sensor.cpu_hot
+                show_header_toggle: false
+                title: Alerts
+                type: entities
+              - entities:
+                  - sensor.last_boot
+                  - type: divider
+                  - sensor.hassio_stable_versie
+                  - sensor.hassio_beta_versie
+                  - sensor.python_version
+                  - type: divider
+                  - sensor.hacs
+                  - cards:
+                      - cards:
+                          - entity: sensor.lights_count
+                            max: 30
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.tracker_count
+                            max: 88
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.input_datetime_count
+                            max: 100
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                        type: horizontal-stack
+                      - cards:
+                          - entity: sensor.automation_count
+                            max: 400
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.binary_sensor_count
+                            max: 200
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                        type: horizontal-stack
+                      - cards:
+                          - entity: sensor.media_player_count
+                            max: 20
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.script_count
+                            max: 35
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                        type: horizontal-stack
+                      - cards:
+                          - entity: sensor.sensor_count
+                            max: 786
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            type: 'custom:bar-card'
+                          - entity: sensor.switch_count
+                            max: 65
+                            positions:
+                              icon: 'off'
+                              indicator: inside
+                              value: inside
+                            style: |-
+                              ha-card{
+                                box-shadow: none;
+                              }
+                              .card-content {
+                                padding: 0px;
+                                margin-right: 5px;
+                              }
+                              bar-card-card{
+                                margin: 4px;
+                              }
+                              bar-card-currentbar, bar-card-backgroundbar{
+                                border-radius: 5px;
+                              }
+                            title_position: inside
+                            type: 'custom:bar-card'
+                        type: horizontal-stack
+                    type: 'custom:vertical-stack-in-card'
+                show_header_toggle: false
+                title: Home Assistant Info
+                type: entities
+            type: vertical-stack
+        type: horizontal-stack
+    icon: 'mdi:server'
+    panel: true
+    path: dashboard
+    theme: ''
+    title: Dashboard
+  - icon: 'mdi:led-strip-variant'
+    path: wled
+    title: ''
+    panel: true
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            title: TRADFRI Main
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.tradfri_main_bulb_1_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.tradfri_main_bulb_1
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:circle-double'
+                    name: Main 1
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                  - type: 'custom:button-card'
+                    color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.tradfri_main_bulb_2_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.tradfri_main_bulb_2
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:circle-double'
+                    name: Main 2
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.tradfri_main_bulb_3_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.tradfri_main_bulb_3
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:circle-double'
+                    name: Main 3
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.tradfri_main_bulb_4_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.tradfri_main_bulb_4
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:circle-double'
+                    name: Main 4
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+          - type: vertical-stack
+            title: Sfeerverlichting
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.wled_kast_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.wled_kast
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: Led Kast
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.wled_nachtkastje_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.wled_nachtkastje
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: Led Nachtkastje
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.wled_xring_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.wled_x_ring
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: X Ring
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.tradfri_bulb_1_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.tradfri_rgb_bulb
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: TRADFRI Nachtkastje
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: switch.ledstrip_bed
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: Led Bed
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    custom_fields:
+                      brightness:
+                        card:
+                          entity: sensor.wled_xring_2_brightness
+                          fill: '#1E2747'
+                          font_style:
+                            color: '#ffffff'
+                            font-size: 10px
+                          gradient: true
+                          max: 100
+                          min: 0
+                          stroke_color: '#32a8a0'
+                          stroke_width: 15
+                          type: 'custom:circle-sensor-card'
+                          units: '%'
+                    entity: light.wled_x_ring_2
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:led-strip-variant'
+                    name: X Ring 2
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                          img_cell:
+                            - animation: blink 2s ease infinite
+                          label:
+                            - display: none
+                          state:
+                            - display: none
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      custom_fields:
+                        brightness:
+                          - max: 100
+                          - min: 0
+                          - width: 2em
+                          - overflow: visible
+                          - position: absolute
+                          - left: 6em
+                          - top: 4em
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s brightness"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                title: Sfeer Scene
+                cards:
+                  - color: auto
+                    entity: input_boolean.led_kast_solid
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:checkbox-blank-circle'
+                    name: Kast Solid
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.led_kast_rainbow
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:looks'
+                    name: Kast Rainbow
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: input_boolean.led_nachtkastje_solid
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:checkbox-blank-circle'
+                    name: Nachtkastje Solid
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.led_nachtkastje_pacifica
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:waves'
+                    name: Nachtkastje Pacifica
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: input_boolean.x_ring_solid
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:checkbox-blank-circle'
+                    name: X Ring Solid
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.x_ring_rainbow
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:looks'
+                    name: X Ring Rainbow
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: input_boolean.x_ring_2_solid
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:checkbox-blank-circle'
+                    name: X Ring 2 Solid
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.x_ring_2_rainbow
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:looks'
+                    name: X Ring 2 Rainbow
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+          - type: vertical-stack
+            title: automatisatie
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: input_boolean.tradfri_main_high_brightness
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:car-light-dimmed'
+                    name: Main 100%
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.tradfri_main_low_brightness
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:car-light-dimmed'
+                    name: Main 10%
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: input_boolean.tradfri_main_color_cool
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:snowflake'
+                    name: Main Cool
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.tradfri_main_color_coolwarm
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:slash-forward'
+                    name: Main Cool-Warm
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: input_boolean.tradfri_main_color_warm
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:fire'
+                    name: Main Warm
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+              - type: horizontal-stack
+                cards:
+                  - color: auto
+                    entity: script.all_main_off
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:lightbulb-off-outline'
+                    name: TRADFRI Main Off
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+                  - color: auto
+                    entity: script.all_main_on
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:lightbulb-outline'
+                    name: TRADFRI Main On
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+          - type: vertical-stack
+            title: All Off
+            cards:
+              - type: vertical-stack
+                cards:
+                  - color: auto
+                    entity: switch.switch_all_off
+                    hold_action:
+                      action: more-info
+                      haptic: heavy
+                    icon: 'mdi:close-box-outline'
+                    name: Alles Uit
+                    show_label: false
+                    show_state: true
+                    size: 100%
+                    state:
+                      - styles:
+                          icon:
+                            - color: '#03A9F4'
+                        value: 'on'
+                      - styles:
+                          icon:
+                            - color: gray
+                        value: 'off'
+                      - operator: default
+                        styles:
+                          icon:
+                            - color: red
+                    styles:
+                      card:
+                        - border-radius: 10px
+                        - height: 105px
+                      grid:
+                        - grid-template-areas: '"n n" "i i" "s s"'
+                        - grid-template-rows: 1fr 2fr 1fr
+                        - grid-template-columns: 1fr 1fr
+                      img_cell:
+                        - align-self: center
+                        - text-align: start
+                      label:
+                        - font-family: Helvetica
+                        - font-size: 14px
+                        - font-weight: bold
+                        - padding: 0px 10px
+                        - justify-self: start
+                        - padding-right: 10px
+                      name:
+                        - justify-self: start
+                        - margin-left: auto
+                        - margin-right: auto
+                        - font-weight: bold
+                        - font-family: Helvetica
+                        - font-size: 13px
+                      state:
+                        - font-size: 11px
+                        - font-family: Helvetica
+                        - margin-left: auto
+                        - margin-right: auto
+                        - text-transform: capitalize
+                        - font-weight: bold
+                    tap_action:
+                      action: toggle
+                      haptic: light
+                    type: 'custom:button-card'
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - animate: true
+                color_thresholds:
+                  - color: '#1c6feb'
+                    value: 23
+                  - color: '#eb9f1c'
+                    value: 24
+                  - color: '#eb2a1c'
+                    value: 25
+                entities:
+                  - entity: sensor.temp_living
+                height: 100
+                hour24: true
+                hours_to_show: 12
+                line_color: var(--primary-color)
+                name: Temperatuur In Living
+                points_per_hour: 5
+                show:
+                  extrema: true
+                  fill: true
+                type: 'custom:mini-graph-card'
+              - animate: true
+                entities:
+                  - entity: sensor.hum_living
+                height: 100
+                hour24: true
+                hours_to_show: 12
+                line_color: var(--primary-color)
+                name: Vochtigheid In Living
+                points_per_hour: 5
+                show:
+                  extrema: true
+                  fill: true
+                  graph: bar
+                type: 'custom:mini-graph-card'
+            type: vertical-stack
+          - cards:
+              - animate: true
+                color_thresholds:
+                  - color: '#1c6feb'
+                    value: 23
+                  - color: '#eb9f1c'
+                    value: 24
+                  - color: '#eb2a1c'
+                    value: 25
+                entities:
+                  - entity: sensor.sonoff_z_t1_temperature
+                height: 100
+                hour24: true
+                hours_to_show: 12
+                line_color: var(--primary-color)
+                name: Temperatuur Kamer Amaury
+                points_per_hour: 5
+                show:
+                  extrema: true
+                  fill: true
+                type: 'custom:mini-graph-card'
+              - animate: true
+                entities:
+                  - entity: sensor.sonoff_z_t1_humidity
+                height: 100
+                hour24: true
+                hours_to_show: 12
+                line_color: var(--primary-color)
+                name: Vochtigheid Kamer Amaury
+                points_per_hour: 5
+                show:
+                  extrema: true
+                  fill: true
+                  graph: bar
+                type: 'custom:mini-graph-card'
+            type: vertical-stack
+          - cards:
+              - entity: weather.dark_sky
+                name: Kruibeke
+                number_of_forecasts: '5'
+                type: 'custom:weather-card'
+            type: vertical-stack
+          - cards:
+              - type: entities
+                entities:
+                  - entity: sensor.windekind_wave_height
+                  - entity: sensor.windekind_air_temp
+                  - entity: sensor.windekind_wind_speed
+                  - entity: sensor.windekind_wind_gust
+                title: Windekind Meteo
+            type: vertical-stack
+        type: horizontal-stack
+    icon: 'mdi:cloud'
+    panel: true
+    path: weather
+    theme: Backend-selected
+    title: Weather
+  - badges: []
+    cards:
+      - cards:
+          - entity: media_player.tech_garden
+            type: media-control
+          - entity: media_player.slaapkamer
+            type: media-control
+          - type: media-control
+            entity: media_player.smart_tv_living
+        type: vertical-stack
+      - cards:
+          - client_id: *****
+            device: XPS-15-AV
+            limit: 15
+            player: XPS-15-AV
+            random_song: true
+            type: 'custom:spotify-card'
+        type: vertical-stack
+    icon: 'mdi:music'
+    panel: false
+    path: media
+    theme: Backend-selected
+    title: Media
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.time
+          - entity: sensor.alarm_1_time
+            name: Alarm Time
+          - entity: sensor.alarm_1_time_minus_offset
+          - entity: input_number.alarm_1_hour
+          - entity: input_number.alarm_1_minutes
+          - entity: input_number.alarm_1_offset
+          - entity: input_boolean.alarm_1_weekday
+          - entity: input_boolean.alarm_1_weekend
+        show_header_toggle: false
+        title: Alarm Clock
+        type: entities
+    icon: 'mdi:clock'
+    panel: true
+    path: timer
+    theme: Backend-selected
+    title: Timer
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - cards:
+                  - image: /local/images/dell.png
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      ha-card>img {
+                        height: 120px;
+                        width: 120px;
+                        margin-left:auto ;
+                        margin-right:auto ;
+                      }
+                    type: picture
+                type: vertical-stack
+              - cards:
+                  - entity: sensor.home_assistant_v2_db
+                    entity_config: true
+                    max: 4096
+                    positions:
+                      icon: inside
+                      indicator: inside
+                      title: inside
+                      value: inside
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-card{
+                        margin: 4px;
+                      }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.ha_restart_time
+                    max: 300
+                    positions:
+                      icon: inside
+                      indicator: inside
+                      title: inside
+                      value: inside
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                      bar-card-card{
+                        margin: 4px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.potential_breaking_changes
+                    positions:
+                      icon: inside
+                      indicator: inside
+                      title: inside
+                      value: inside
+                    style: |-
+                      ha-card{
+                        box-shadow: none;
+                      }
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-currentbar, bar-card-backgroundbar{
+                        border-radius: 5px;
+                      }
+                      bar-card-card{
+                        margin: 4px;
+                      }
+                    type: 'custom:bar-card'
+                type: vertical-stack
+            type: horizontal-stack
+          - entities:
+              - sensor.disk_use_percent_home
+              - sensor.memory_use
+            stack: horizontal
+            style: |-
+              ha-card{
+                box-shadow: none;
+              }
+              .card-content {
+                padding: 0px;
+                border-radius: 5px;
+                margin-right: 5px;
+                }
+              .contentbar-direction-right{
+                border-radius: 5px;
+                }
+              bar-card-currentbar, bar-card-backgroundbar{
+                border-radius: 5px;
+              }
+              bar-card-card{
+                border-radius: 5px;
+                margin: 4px;
+                }
+            type: 'custom:bar-card'
+          - entities:
+              - sensor.processor_use
+              - sensor.cpu_temperature
+            stack: horizontal
+            style: |-
+              ha-card{
+                box-shadow: none;
+              }
+              .card-content {
+                padding: 0px;
+                border-radius: 5px;
+                margin-right: 5px;
+                }
+              .contentbar-direction-right{
+                border-radius: 5px;
+                }
+              bar-card-currentbar, bar-card-backgroundbar{
+                border-radius: 5px;
+              }
+              bar-card-card{
+                border-radius: 5px;
+                margin: 4px;
+                }
+            type: 'custom:bar-card'
+          - entities:
+              - sensor.swap_use_percent
+              - sensor.time_online
+            stack: horizontal
+            style: |-
+              ha-card{
+                box-shadow: none;
+              }
+              .card-content {
+                padding: 0px;
+                border-radius: 5px;
+                margin-right: 5px;
+                }
+              .contentbar-direction-right{
+                border-radius: 5px;
+                }
+              bar-card-currentbar, bar-card-backgroundbar{
+                border-radius: 5px;
+              }
+              bar-card-card{
+                border-radius: 5px;
+                margin: 4px;
+                }in: 4px;
+               }
+            type: 'custom:bar-card'
+        title: Hassio Server
+        type: 'custom:vertical-stack-in-card'
+      - entities:
+          - sensor.ophaalkalender_papier
+          - sensor.ophaalkalender_pmd
+          - sensor.ophaalkalender_restafval
+        show_header_toggle: false
+        title: Ophaalkalender Ibogem
+        type: entities
+      - cards:
+          - cards:
+              - entities:
+                  - input_boolean.maintenance_mode
+                  - type: divider
+                  - script.quick_restart
+                  - script.quick_reboot
+                type: entities
+            popup: confirm
+            title: Onderhoud
+            type: 'custom:love-lock-card'
+        type: vertical-stack
+      - cards:
+          - color: auto
+            custom_fields:
+              brightness:
+                card:
+                  entity: sensor.wled_kast_brightness
+                  fill: '#1E2747'
+                  font_style:
+                    color: '#ffffff'
+                    font-size: 10px
+                  gradient: true
+                  max: 100
+                  min: 0
+                  stroke_color: '#32a8a0'
+                  stroke_width: 15
+                  type: 'custom:circle-sensor-card'
+                  units: '%'
+            entity: light.wled_kast
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:led-strip-variant'
+            name: Led Kast
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - margin-top: 7px
+                - border-radius: 10px
+                - height: 105px
+              custom_fields:
+                brightness:
+                  - max: 100
+                  - min: 0
+                  - width: 2em
+                  - overflow: visible
+                  - position: absolute
+                  - left: 5em
+                  - top: 4em
+              grid:
+                - grid-template-areas: '"n n" "i i" "s brightness"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+          - color: auto
+            custom_fields:
+              brightness:
+                card:
+                  entity: sensor.wled_kast_brightness
+                  fill: '#1E2747'
+                  font_style:
+                    color: '#ffffff'
+                    font-size: 10px
+                  gradient: true
+                  max: 100
+                  min: 0
+                  stroke_color: '#32a8a0'
+                  stroke_width: 15
+                  type: 'custom:circle-sensor-card'
+                  units: '%'
+            entity: light.wled_nachtkastje_2
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:house'
+            name: Led N. kastje
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - margin-top: 7px
+                - height: 105px
+              custom_fields:
+                brightness:
+                  - max: 100
+                  - min: 0
+                  - width: 2em
+                  - overflow: visible
+                  - position: absolute
+                  - left: 5em
+                  - top: 4em
+              grid:
+                - grid-template-areas: '"n n" "i i" "s brightness"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+          - color: auto
+            custom_fields:
+              brightness:
+                card:
+                  entity: sensor.wled_kast_brightness
+                  fill: '#1E2747'
+                  font_style:
+                    color: '#ffffff'
+                    font-size: 10px
+                  gradient: true
+                  max: 100
+                  min: 0
+                  stroke_color: '#32a8a0'
+                  stroke_width: 15
+                  type: 'custom:circle-sensor-card'
+                  units: '%'
+            entity: light.x_ring
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:circle-double'
+            name: X Ring
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: null
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+                  img_cell:
+                    - animation: blink 2s ease infinite
+                  label:
+                    - display: none
+                  state:
+                    - display: none
+            styles:
+              card:
+                - border-radius: 10px
+                - margin-top: 7px
+                - height: 105px
+              custom_fields:
+                brightness:
+                  - max: 100
+                  - min: 0
+                  - width: 2em
+                  - overflow: visible
+                  - position: absolute
+                  - left: 5em
+                  - top: 4em
+              grid:
+                - grid-template-areas: '"n n" "i i" "s brightness"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+        type: horizontal-stack
+      - cards:
+          - color: auto
+            entity: switch.algemene_verlichting
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:lightbulb-group-outline'
+            name: Groot Licht
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - height: 105px
+              grid:
+                - grid-template-areas: '"n n" "i i" "s s"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+          - color: auto
+            entity: switch.lamp_nachttafel
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:floor-lamp'
+            name: Nachttafel
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - height: 105px
+              grid:
+                - grid-template-areas: '"n n" "i i" "s s"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+          - color: auto
+            entity: switch.ledstrip_bed
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:led-strip-variant'
+            name: Led Bed
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - height: 105px
+              grid:
+                - grid-template-areas: '"n n" "i i" "s s"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+        type: horizontal-stack
+      - cards:
+          - color: auto
+            entity: switch.switch_all_off
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:close-box-outline'
+            name: Alles Uit
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - height: 105px
+              grid:
+                - grid-template-areas: '"n n" "i i" "s s"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+          - color: auto
+            entity: switch.lsc_smart_plug
+            hold_action:
+              action: more-info
+              haptic: heavy
+            icon: 'mdi:desk-lamp'
+            name: Bureau Lamp
+            show_label: false
+            show_state: true
+            size: 100%
+            state:
+              - styles:
+                  icon:
+                    - color: '#03A9F4'
+                value: 'on'
+              - styles:
+                  icon:
+                    - color: gray
+                value: 'off'
+              - operator: default
+                styles:
+                  icon:
+                    - color: red
+            styles:
+              card:
+                - border-radius: 10px
+                - height: 105px
+              grid:
+                - grid-template-areas: '"n n" "i i" "s s"'
+                - grid-template-rows: 1fr 2fr 1fr
+                - grid-template-columns: 1fr 1fr
+              img_cell:
+                - align-self: center
+                - text-align: start
+              label:
+                - font-family: Helvetica
+                - font-size: 14px
+                - font-weight: bold
+                - padding: 0px 10px
+                - justify-self: start
+                - padding-right: 10px
+              name:
+                - justify-self: start
+                - margin-left: auto
+                - margin-right: auto
+                - font-weight: bold
+                - font-family: Helvetica
+                - font-size: 13px
+              state:
+                - font-size: 11px
+                - font-family: Helvetica
+                - margin-left: auto
+                - margin-right: auto
+                - text-transform: capitalize
+                - font-weight: bold
+            tap_action:
+              action: toggle
+              haptic: light
+            type: 'custom:button-card'
+        type: horizontal-stack
+      - entities:
+          - calendar.thuis
+          - calendar.chiro
+          - calendar.school_2ea2
+          - calendar.school_1ea3
+          - calendar.school_1ea4
+        progressBar: true
+        title: Icloud
+        type: 'custom:calendar-card'
+      - entities:
+          - device_tracker.life360_amaury
+          - sensor.battery_amaury
+          - device_tracker.life360_jurgen
+          - sensor.battery_jurgen
+          - device_tracker.life360_valerie_verschooren
+          - sensor.battery_valerie
+        show_header_toggle: false
+        title: Alerts
+        type: entities
+      - entities:
+          - entity: sensor.time
+          - entity: sensor.alarm_1_time
+            name: Alarm Time
+          - entity: sensor.alarm_1_time_minus_offset
+          - entity: input_number.alarm_1_hour
+          - entity: input_number.alarm_1_minutes
+          - entity: input_number.alarm_1_offset
+          - entity: input_boolean.alarm_1_weekday
+          - entity: input_boolean.alarm_1_weekend
+        show_header_toggle: false
+        title: Alarm Clock
+        type: entities
+      - entities:
+          - binary_sensor.cpu_high
+          - binary_sensor.cpu_hot
+        show_header_toggle: false
+        title: Alerts
+        type: entities
+      - entities:
+          - sensor.last_boot
+          - type: divider
+          - sensor.hassio_stable_versie
+          - sensor.hassio_beta_versie
+          - sensor.python_version
+          - sensor.snapshot_backup
+          - type: divider
+          - sensor.hacs
+          - cards:
+              - cards:
+                  - entity: sensor.lights_count
+                    max: 30
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.tracker_count
+                    max: 88
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.input_datetime_count
+                    max: 100
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                type: horizontal-stack
+              - cards:
+                  - entity: sensor.automation_count
+                    max: 400
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.binary_sensor_count
+                    max: 200
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                type: horizontal-stack
+              - cards:
+                  - entity: sensor.media_player_count
+                    max: 20
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.script_count
+                    max: 35
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                type: horizontal-stack
+              - cards:
+                  - entity: sensor.sensor_count
+                    max: 786
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    type: 'custom:bar-card'
+                  - entity: sensor.switch_count
+                    max: 65
+                    positions:
+                      icon: 'off'
+                      indicator: inside
+                      value: inside
+                    style: |
+                      .card-content {
+                        padding: 0px;
+                        margin-right: 5px;
+                      }
+                      bar-card-current, bar-card-backgroundbar {
+                        border-radius: 5px;
+                      }
+                    title_position: inside
+                    type: 'custom:bar-card'
+                type: horizontal-stack
+            type: 'custom:vertical-stack-in-card'
+        show_header_toggle: false
+        title: Home Assistant Info
+        type: entities
+      - entity: binary_sensor.dinner_ready
+        hold_action:
+          action: more-info
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.ikea_lamp_amaury_level_light_color_on_off
+        type: 'custom:light-entity-card'
+      - entity: light.ikea_nachtkastje
+        type: light
+      - type: calendar
+        entities:
+          - calendar.reminders
+          - calendar.thuis
+          - calendar.chiro
+        title: A
+        theme: iOS Dark Mode
+      - type: entity
+        entity: sensor.windspeed
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.switch_dinner_ready
+        show_state: true
+      - type: entities
+        entities:
+          - entity: switch.lsc_smart_plug
+      - type: entities
+        entities:
+          - entity: binary_sensor.sonoff_z_d1_contact
+      - type: entity
+        entity: switch.ledstrip_garage
+    panel: false
+    path: testpage
+    title: Testpage
