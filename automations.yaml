@@ -1,0 +1,20 @@
+#####################################################################
+############################# THEMES ################################
+#####################################################################
+- alias: 'ring doorbell'
+  trigger:
+  - platform: template
+    value_template: '{{0>1}}'
+  action:
+  - data: {}
+    service: script.doorbell
+
+
+- id: alarm_1_weekday
+  alias: Wake me up (weekday)
+  trigger:
+  - platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.alarm_1_time_minus_offset.state  }}'
+  action:
+  - data: {}
+    service: script.good_morning

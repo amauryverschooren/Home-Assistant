@@ -1,0 +1,7 @@
+TRADFRI_Main_Bulbs:
+  name: TRADFRI Main Bulbs
+  entities:
+    - light.tradfri_main_bulb_1
+    - light.tradfri_main_bulb_2
+    - light.tradfri_main_bulb_3
+    - light.tradfri_main_bulb_4

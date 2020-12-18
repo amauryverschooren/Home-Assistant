@@ -1,0 +1,680 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Amaury_home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Brussels
+  internal_url: "http://192.168.0.202:8123"
+  allowlist_external_dirs:
+    - /config
+
+  # Customization file
+  customize:
+    # Alarm clock sensors
+    sensor.time:
+      hidden: true
+    sensor.alarm_clock_hour:
+      hidden: true
+    sensor.alarm_clock_minute:
+      hidden: true
+    sensor.alarm_clock_time_long:
+      hidden: true
+    sensor.alarm_clock_time:
+      friendly_name: "Alarm Clock Setting"
+      icon: mdi:alarm
+    device_tracker.life360_jurgen:
+      friendly_name: "Jurgen"
+    device_tracker.life360_amaury:
+      friendly_name: "Amaury"
+    device_tracker.iphone_amaury8_2:
+      friendly_name: "Amaury"
+    device_tracker.life360_valerie_verschooren:
+      friendly_name: "Valerie"
+    device_tracker.life360_lieve_van_goeye:
+      friendly_name: "Lieve"
+    sensor.fn_trunk_pct_used_storage0:
+      friendly_name: "Used storage"
+    sensor.fn_trunk_report_storage0:
+      friendly_name: "Status"
+    sensor.FN_alert_level_storage0:
+      friendly_name: "Alert level"
+    sensor.FN_alert_message_storage0:
+      friendly_name: "Alert message"
+    sensor.FN_version_storage0:
+      friendly_name: "Version"
+    sensor.fn_trunk_pct_used_storage1:
+      friendly_name: "Used storage"
+    sensor.fn_trunk_report_storage1:
+      friendly_name: "Status"
+    sensor.FN_alert_level_storage1:
+      friendly_name: "Alert level"
+    sensor.FN_alert_message_storage1:
+      friendly_name: "Alert message"
+    sensor.FN_version_storage1:
+      friendly_name: "Version"
+    # Alarm clock inputs
+    input_number.alarm_clock_hour:
+      friendly_name: "Hour"
+      icon: mdi:timer
+    input_number.alarm_clock_minute:
+      friendly_name: "Minute"
+      icon: mdi:timer
+    input_boolean.alarm_clock_status:
+      friendly_name: "Alarm Clock Status"
+      icon: mdi:alarm-check
+    script.spotify_music:
+      friendly_name: "Play"
+      icon: mdi:play
+
+
+mobile_app:
+ffmpeg:
+updater:
+history:
+conversation:
+map:
+sun:
+config:
+system_health:
+breaking_changes:
+cloud:
+http:
+
+###############################################################################
+#############################  CUSTOM SENSOR  #################################
+###############################################################################
+
+sensor amaury:
+  - platform: mqtt
+    state_topic: "tele/WemosD1Amaury0.1/SENSOR"
+    name: "Temp_Amaury"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.AM2301.Temperature }}"
+
+  - platform: mqtt
+    state_topic: "tele/WemosD1Amaury0.1/SENSOR"
+    name: "Hum_Amaury"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.AM2301.Humidity }}"
+
+sensor living:
+  - platform: mqtt
+    state_topic: "tele/WemosD1Amaury0.2/SENSOR"
+    name: "Temp_Living"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.AM2301.Temperature }}"
+
+  - platform: mqtt
+    state_topic: "tele/WemosD1Amaury0.2/SENSOR"
+    name: "Hum_Living"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.AM2301.Humidity }}"
+
+###############################################################################
+###############################  SENSORS  #####################################
+###############################################################################
+
+sensor:
+  - platform: template
+    sensors:
+      wled_kast_brightness:
+        friendly_name: "Brightness Level Of Ledstrip Kast"
+        value_template: "{{ ( (state_attr('light.wled_kast', 'brightness') | int ) / 255 * 100) | round() }}"
+
+  - platform: template
+    sensors:
+      wled_nachtkastje_brightness:
+        friendly_name: "Brightness Level Of Ledstrip Nachtkastje"
+        value_template: "{{ ( (state_attr('light.wled_nachtkastje', 'brightness') | int ) / 255 * 100) | round() }}"
+
+  - platform: template
+    sensors:
+      wled_xring_brightness:
+        friendly_name: "Brightness Level Of Ledstrip X Ring"
+        value_template: "{{ ( (state_attr('light.wled_x_ring', 'brightness') | int ) / 255 * 100) | round() }}"
+
+  - platform: template
+    sensors:
+      wled_xring_2_brightness:
+        friendly_name: "Brightness Level Of Ledstrip X Ring 2"
+        value_template: "{{ ( (state_attr('light.wled_x_ring_2', 'brightness') | int ) / 255 * 100) | round() }}"
+
+  - platform: template
+    sensors:
+      tradfri_bulb_1_brightness:
+        friendly_name: "Brightness Level Of Tradfri Bulb 1"
+        value_template: "{{ ( (state_attr('light.tradfri_bulb_1', 'brightness') | int ) / 255 * 100) | round() }}"
+
+  - platform: version
+    name: Hassio Beta versie
+    beta: true
+    image: raspberrypi3
+    source: hassio
+
+
+  - platform: version
+    name: Hassio Stable versie
+    beta: false
+    image: raspberrypi3
+    source: hassio
+
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
+
+  - platform: uptime
+    unit_of_measurement: days
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: disk_free
+        arg: /home
+      - type: memory_use
+      - type: memory_free
+      - type: load_1m
+  - platform: systemmonitor
+    resources:
+      - type: memory_use_percent
+      - type: processor_use
+      - type: disk_use_percent
+        arg: /
+      - type: disk_free
+        arg: /
+      - type: last_boot
+      - type: swap_use_percent
+  ##### Latest HA installed version
+  - platform: version
+    beta: true
+    name: HA Installed Version
+    scan_interval: 86400
+  ##### Latest python3 version
+  - platform: command_line
+    name: Python Version
+    command: python3 --version
+    scan_interval: 86400
+  #  ##### When will the SSL expiry
+  - platform: cert_expiry
+    host: home-assistant.io
+  #  ##### UpTime
+  - platform: uptime
+    name: Time Online
+
+  #  ##### Restart time
+  - platform: command_line
+    name: HA Restart Time
+    command: "/bin/cat /config/home-assistant.log | /bin/grep 'Home Assistant initialized in' | /usr/bin/awk '{print $10}' | /bin/sed 's/[^0-9.]//g'"
+    scan_interval: 60
+    unit_of_measurement: "sec"
+  #
+  - platform: template
+    sensors:
+      sensor_count:
+        friendly_name: "Number of Sensors"
+        value_template: >
+          {%- set domains = ['sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      automation_count:
+        friendly_name: "Number of Automations"
+        value_template: >
+          {%- set domains = ['automation'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      script_count:
+        friendly_name: "Number of Scripts"
+        value_template: >
+          {%- set domains = ['script'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      switch_count:
+        friendly_name: "Number of Switches"
+        value_template: >
+          {%- set domains = ['switch'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      binary_sensor_count:
+        friendly_name: "Number of Binary Sensors"
+        value_template: >
+          {%- set domains = ['binary_sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      lights_count:
+        friendly_name: "Number of Lights"
+        value_template: >
+          {%- set domains = ['light'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      tracker_count:
+        friendly_name: "Number of Devices"
+        value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      media_player_count:
+        friendly_name: "Number of Media Players"
+        value_template: >
+          {%- set domains = ['media_player'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      input_datetime_count:
+        friendly_name: "Number of Input DateTime"
+        value_template: >
+          {%- set domains = ['input_datetime'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+  - platform: time_date
+    display_options:
+      - "time"
+  - platform: template
+    sensors:
+      alarm_clock_hour:
+        value_template: "{{ states.input_number.alarm_clock_hour.state | int }}"
+      alarm_clock_minute:
+        value_template: "{{ states.input_number.alarm_clock_minute.state | int }}"
+      alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+      alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+
+  - platform: afvalbeheer
+    wastecollector: RecycleApp
+    resources:
+      - restafval
+      - gft
+      - papier
+      - pmd
+      - grofvuil
+      - glas
+    postcode: !secret postcode
+    streetnumber: !secret streetnumber
+    streetname: !secret streetname
+    upcomingsensor: 1
+    dateformat: "%d-%m-%Y"
+    dateonly: 0
+    name: ""
+    nameprefix: 0
+    builtinicons: 1
+    dutch: 0
+
+  - platform: template
+    sensors:
+      alarm_1_time:
+        friendly_name: sensor.alarm_1_time
+        value_template: >-
+          {{ "%0.02d:%0.02d" | format(states("input_number.alarm_1_hour") | int, states("input_number.alarm_1_minutes") | int) }}
+  - platform: template
+    sensors:
+      alarm_1_time_minus_offset:
+        friendly_name: "Offset Time"
+        value_template: >-
+          {{ '%0.02d:%0.02d' | format( ((((states('input_number.alarm_1_hour') | int)*60 + (states('input_number.alarm_1_minutes') | int) - (states('input_number.alarm_1_offset'))| int)/60)| int),(((((((((states('input_number.alarm_1_hour') | int)*60 + (states('input_number.alarm_1_minutes') | int) - (states('input_number.alarm_1_offset')) | int)/60)) - ((((states('input_number.alarm_1_hour') | int)*60 + (states('input_number.alarm_1_minutes') | int) - (states('input_number.alarm_1_offset')) | int)/60)| int))*100) | int)*60/100) | round) ) }}
+
+  - platform: template
+    sensors:
+      battery_amaury:
+        friendly_name: Batterijniveau Amaury
+        unit_of_measurement: "%"
+        value_template: "{{ states.device_tracker.life360_amaury.attributes.battery|round }}"
+        device_class: battery
+
+      battery_jurgen:
+        friendly_name: Batterijniveau Jurgen
+        unit_of_measurement: "%"
+        value_template: "{{ states.device_tracker.life360_jurgen.attributes.battery|round }}"
+        device_class: battery
+
+      battery_valerie:
+        friendly_name: Batterijniveau Valerie
+        unit_of_measurement: "%"
+        value_template: "{{ states.device_tracker.life360_valerie_verschooren.attributes.battery|round }}"
+        device_class: battery
+
+      battery_lieve:
+        friendly_name: Batterijniveau Lieve
+        unit_of_measurement: "%"
+        value_template: "{{ states.device_tracker.life360_lieve_van_goeye.attributes.battery|round }}"
+        device_class: battery
+
+
+
+###############################################################################
+#############################  BINARY SENSOR  #################################
+###############################################################################
+
+binary_sensor:
+  - platform: workday
+    country: BE
+  - platform: template
+    sensors:
+      cpu_high:
+        value_template: "{{ states.sensor.processor_use.state | float > 80 }}"
+        friendly_name: "CPU hoog"
+  - platform: template
+    sensors:
+      cpu_hot:
+        value_template: "{{ states.sensor.cpu_temp.state | float > 65 }}"
+        friendly_name: "CPU heet"
+
+  - platform: mqtt
+    name: Dinner Ready
+    state_topic: "sonoffr3/dinner_ready"
+    payload_on: "ON"
+    payload_off: "OFF"
+
+###############################################################################
+#############################  SWITCH/LIGHT  ##################################
+###############################################################################
+
+switch:
+  - platform: mqtt
+    name: "algemene_verlichting"
+    command_topic: "cmnd/verlichting/POWER"
+    state_topic: "stat/verlichting/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "LSC Smart Plug"
+    command_topic: "cmnd/lsc_plug_1/POWER"
+    state_topic: "stat/lsc_plug_1/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "switch_all_off"
+    command_topic: "cmnd/switch_all_off/POWER"
+    state_topic: "stat/switch_all_off/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "switch_dinner_ready"
+    command_topic: "cmnd/switch_dinner_ready/POWER"
+    state_topic: "stat/switch_dinner_ready/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "Ledstrip_Bed"
+    command_topic: "cmnd/Sonoff_Dual_1/power1"
+    state_topic: "stat/Sonoff_Dual_1/POWER1"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+  - platform: mqtt
+    name: "Lamp_Nachttafel"
+    command_topic: "cmnd/Sonoff_Dual_1/power2"
+    state_topic: "stat/Sonoff_Dual_1/POWER2"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+###############################################################################
+###############################  INPUTS  ######################################
+###############################################################################
+
+input_number:
+  alarm_1_hour:
+    name: Hours
+    icon: mdi:timer-outline
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+  alarm_1_minutes:
+    name: Minutes
+    icon: mdi:timer-outline
+    initial: 20
+    min: 0
+    max: 59
+    step: 1
+  alarm_1_offset:
+    name: Transition
+    icon: mdi:blur-linear
+    initial: 0
+    min: 0
+    max: 60
+    step: 15
+
+input_boolean:
+  alarm_1_weekday:
+    name: Weekdays
+    initial: on
+    icon: mdi:calendar
+  alarm_1_weekend:
+    name: Weekends
+    initial: off
+    icon: mdi:calendar
+  maintenance_mode:
+    name: Onderhouds Mode
+    icon: mdi:auto-fix
+  temp_amaury:
+    name: Temperatuur Amaury
+  temp_living:
+    name: Temperatuur living
+  tradfri_main_low_brightness:
+    name: Tradfri Main Low Brightness
+  tradfri_main_high_brightness:
+    name: Tradfri Main Low Brightness
+  tradfri_main_color_cool:
+    name: Tradfri Main Color Cool
+  tradfri_main_color_coolwarm:
+    name: Tradfri Main Color CoolWarm
+  tradfri_main_color_warm:
+    name: Tradfri Main Color Warm
+  led_kast_solid:
+    name: Led Kast Solid
+  led_kast_rainbow:
+    name: Led Kast Rainbow
+  led_nachtkastje_solid:
+    name: Led Nachtkastje Solid
+  led_nachtkastje_pacifica:
+    name: Led Nachtkastje Pacifica
+  x_ring_solid:
+    name: X Ring Solid
+  x_ring_rainbow:
+    name: X Ring Rainbow
+  x_ring_2_solid:
+    name: X Ring 2 Solid
+  x_ring_2_rainbow:
+    name: X Ring 2 Rainbow
+
+
+###############################################################################
+###############################  MUSIC  #######################################
+###############################################################################
+
+spotify:
+  client_id: !secret client_id
+  client_secret: !secret client_secret
+
+
+
+###############################################################################
+###############################  GOOGLE  ######################################
+###############################################################################
+google:
+  client_id: !secret GOOGLE_ID
+  client_secret: !secret GOOGLE_SECRET
+
+
+
+###############################################################################
+###############################  STAND ALONE  #################################
+###############################################################################
+
+
+
+lovelace:
+  resources:
+    - url: /www/community_plugin/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+
+    - type: module
+      url: /www/community_plugin/love-lock-card/love-lock-card.js
+
+    - url: /www/community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+      type: js
+
+    - url: /www/community_plugin/weather-card/weather-card.js
+      type: module
+
+    - url: /www/community_plugin/bar-card/bar-card.js
+      type: js
+
+    - type: js
+      url: /www/community_plugin/auto-entities/auto-entities.js
+
+    - type: js
+      url: /www/community_plugin/delijn-card/delijn-card.js
+
+    - type: js
+      url: /local/card-tools.js
+
+    - url: /www/community_plugin/custom-header/custom-header.js
+      type: module
+
+    - url: /www/community_plugin/air-visual-card/air-visual-card.js
+      type: js
+
+    - url: /www/community_plugin/spotify-card/spotify-card.js
+      type: module
+
+    - url: /www/community_plugin/button-card/button-card.js
+      type: module
+
+life360:
+  accounts:
+    - username: !secret LiFE360_USERNAME
+      password: !secret LIFE360_PASSWORD
+  circles:
+    include: [Verschooren's]
+  interval_seconds: 120
+
+weather:
+  - platform: darksky
+    api_key: !secret api_darksky
+    mode: daily
+
+mqtt:
+  discovery: true
+  broker: 192.168.0.202
+hacs:
+  token: !secret HACS_github
+
+calendar:
+  - platform: caldav
+    url: https://caldav.icloud.com
+    username: !secret username_icloud
+    password: !secret password_icloud
+
+notify:
+  - name: pushover
+    platform: pushover
+    api_key: !secret NOTIFY_API
+    user_key: !secret NOTIFY_USER
+
+
+logger:
+  default: info
+  logs:
+    homeassistant.bootstrap: info
+    homeassistant.components.shell_command: fatal
+
+spotcast:
+  sp_dc: !secret SP_DC
+  sp_key: !secret SP_KEY
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+tts:
+  - platform: google_translate
+    service_name: google_say
+    cache: true
+    base_url: http://192.168.0.202:8123
+    cache_dir: /tmp
+
+panel_iframe:
+  windekind:
+    title: "Windekind"
+    url: "http://www.windekindmeteo.be/"
+    icon: "mdi:waves"
+  nodered:
+    title: "Node-Red"
+    url: "http://192.168.0.202:1880"
+    icon: mdi:sitemap
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

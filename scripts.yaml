@@ -1,0 +1,178 @@
+wake_up_tts:
+  sequence:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.tech_garden
+      volume_level: 0.2
+  - service: homeassistant.turn_on
+    data:
+      entity_id:
+      - light.wled_kast
+      - light.wled_nachtkastje_2
+      - switch.ledstrip_bed
+      - light.tradfri_bulb_1
+      - light.wled_x_ring
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.tech_garden
+      media_content_id: http://icecast.vrtcdn.be/mnm-high.mp3
+      media_content_type: audio/mp3
+  mode: single
+testxring:
+  sequence:
+  - data:
+      entity_id: light.wled_x_ring
+    service: light.turn_on
+  - data_template:
+      payload: FX=100
+      topic: wled/23b1fc/api
+    service: mqtt.publish
+tracker_away:
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id:
+      - light.wled_kast
+      - light.wled_nachtkastje_2
+      - light.wled_x_ring
+      - light.tradfri_bulb_1
+      - group.tradfri_main_bulbs
+      - switch.ledstrip_bed
+  - service: notify.pushover
+    data:
+      message: Alle Verlichting Uitgeschakeld
+      title: Verlichting
+  - service: media_player.media_stop
+    data:
+      entity_id: media_player.tech_garden
+  - service: media_player.media_stop
+    data:
+      entity_id: media_player.slaapkamer
+  - service: notify.pushover
+    data:
+      message: Muziek is uitgeschakeld
+      title: Media
+tracker_home:
+  sequence:
+  - service: homeassistant.turn_on
+    data:
+      entity_id:
+      - light.tradfri_bulb_1
+      - light.wled_kast
+      - light.wled_nachtkastje
+      - switch.algemene_verlichting
+      - switch.ledstrip_bed
+      - switch.lamp_nachttafel
+  - service: notify.pushover
+    data:
+      message: Alle Verlichting ingeschakeld
+      title: Verlichting
+quick_restart:
+  alias: Quick Restart HA
+  sequence:
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.maintenance_mode
+  - delay: 00:00:02
+  - service: homeassistant.restart
+quick_reboot:
+  alias: Quick Reboot Hassio
+  sequence:
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.maintenance_mode
+  - delay: 00:00:02
+  - service: hassio.host_reboot
+all_off:
+  alias: all_off_amaury
+  sequence:
+  - data:
+      entity_id:
+      - switch.ledstrip_bed
+      - light.tradfri_rgb_bulb
+      - light.wled_kast
+      - light.wled_nachtkastje
+      - light.wled_x_ring
+      - group.tradfri_main_bulbs
+    service: homeassistant.turn_off
+  - data:
+      entity_id:
+      - media_player.slaapkamer
+      - media_player.tech_garden
+    service: media_player.turn_off
+  - data:
+      entity_id:
+      - switch.switch_all_off
+    service: homeassistant.turn_off
+dinner_ready:
+  alias: dinner_ready
+  sequence:
+  - data:
+      volume_level: 0.6
+    service: media_player.volume_set
+    entity_id: media_player.tech_garden
+  - data:
+      message: Dinner is ready! Go downstairs!
+      language: en
+      entity_id: media_player.tech_garden
+    service: tts.google_say
+  mode: single
+dinner_ready2:
+  alias: dinner_ready2
+  sequence:
+  - data:
+      volume_level: 0.6
+    service: media_player.volume_set
+    entity_id: media_player.tech_garden
+  - data:
+      message: Dinner is served, would you like to go downstairs?
+      language: en
+      entity_id: media_player.tech_garden
+    service: tts.cloud_say
+  mode: single
+dinner_ready3:
+  alias: dinner_ready3
+  sequence:
+  - data:
+      volume_level: 0.6
+    service: media_player.volume_set
+    entity_id: media_player.tech_garden
+  - data:
+      message: Food is ready, you can come and eat if you want.
+      language: en
+      entity_id: media_player.tech_garden
+    service: tts.cloud_say
+  mode: single
+lunch_ready:
+  alias: lunch_ready
+  sequence:
+  - data:
+      volume_level: 0.6
+    service: media_player.volume_set
+    entity_id: media_player.tech_garden
+  - data:
+      message: Are you hungry? Lunch is ready!
+      language: en
+      entity_id: media_player.tech_garden
+    service: tts.google_say
+  mode: single
+good_morning:
+  sequence:
+doorbell:
+  sequence:
+all_main_off:
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id:
+      - light.tradfri_main_bulb_1
+      - light.tradfri_main_bulb_2
+      - light.tradfri_main_bulb_3
+      - light.tradfri_main_bulb_4
+all_main_on:
+  sequence:
+  - service: homeassistant.turn_on
+    data:
+      entity_id:
+      - light.tradfri_main_bulb_1
+      - light.tradfri_main_bulb_2
+      - light.tradfri_main_bulb_3
+      - light.tradfri_main_bulb_4
