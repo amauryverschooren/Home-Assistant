@@ -10,7 +10,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Brussels
-  internal_url: "http://192.168.0.202:8123"
+  internal_url: "http://192.168.0.203:8123"
   allowlist_external_dirs:
     - /config
 
@@ -401,7 +401,171 @@ sensor:
         value_template: "{{ states.device_tracker.life360_lieve_van_goeye.attributes.battery|round }}"
         device_class: battery
 
+#### Power Sensors
+  - platform: template
+    sensors:
+      tradfri_main_bulb_1_power:
+        friendly_name: "Tradfri Main 1 Power"
+        unit_of_measurement: 'W'
+        value_template: >
+          {% if is_state('light.tradfri_main_bulb_1', 'on') %}
+              {% set brightness = states.light.tradfri_main_bulb_1.attributes.brightness | int  %}
+              {{ 9 * (brightness | float / 255) | round(2) }}
+          {% else %}
+            0
+          {% endif %}
+      tradfri_main_bulb_2_power:
+        friendly_name: "Tradfri Main 2 Power"
+        unit_of_measurement: 'W'
+        value_template: >
+          {% if is_state('light.tradfri_main_bulb_2', 'on') %}
+          	  {% set brightness = states.light.tradfri_main_bulb_2.attributes.brightness | int  %}
+          	  {{ 9 * (brightness | float / 255) | round(2) }}
+          {% else %}
+          	0
+          {% endif %}
+      tradfri_main_bulb_3_power:
+        friendly_name: "Tradfri Main 3 Power"
+        unit_of_measurement: 'W'
+        value_template: >
+          {% if is_state('light.tradfri_main_bulb_3', 'on') %}
+          	  {% set brightness = states.light.tradfri_main_bulb_3.attributes.brightness | int  %}
+          	  {{ 9 * (brightness | float / 255) | round(2) }}
+          {% else %}
+          	0
+          {% endif %}
+      tradfri_main_bulb_4_power:
+        friendly_name: "Tradfri Main 4 Power"
+        unit_of_measurement: 'W'
+        value_template: >
+          {% if is_state('light.tradfri_main_bulb_4', 'on') %}
+          	  {% set brightness = states.light.tradfri_main_bulb_4.attributes.brightness | int  %}
+          	  {{ 9 * (brightness | float / 255) | round(2) }}
+          {% else %}
+          	0
+          {% endif %}
+      tradfri_rgb_bulb_power:
+        friendly_name: "Tradfri RGB Power"
+        unit_of_measurement: 'W'
+        value_template: >
+          {% if is_state('light.tradfri_rgb_bulb', 'on') %}
+          	  {% set brightness = states.light.tradfri_rgb_bulb.attributes.brightness | int  %}
+          	  {{ 8.6 * (brightness | float / 255) | round(2) }}
+          {% else %}
+          	0
+          {% endif %}
 
+  - platform: integration
+    source: sensor.tradfri_main_bulb_1_power
+    name: tradfri_main_1_energy
+    round: 2
+  - platform: integration
+    source: sensor.tradfri_main_bulb_2_power
+    name: tradfri_main_2_energy
+    round: 2
+  - platform: integration
+    source: sensor.tradfri_main_bulb_3_power
+    name: tradfri_main_3_energy
+    round: 2
+  - platform: integration
+    source: sensor.tradfri_main_bulb_4_power
+    name: tradfri_main_4_energy
+    round: 2
+  - platform: integration
+    source: sensor.tradfri_rgb_bulb_power
+    name: tradfri_rgb_energy
+    round: 2
+
+  - platform: integration
+    source: sensor.tradfri_main_power
+    name: tradfri_main_energy
+    round: 2
+
+  - platform: integration
+    source: sensor.total_power
+    name: total_energy
+    round: 2
+
+  - platform: template
+    sensors:
+      tradfri_main_power:
+        friendly_name: "Tradfri Main Power"
+        unit_of_measurement: 'W'
+        icon_template: mdi:speedometer
+        value_template: "{{ (states('sensor.tradfri_main_bulb_1_power') | float + 
+                  states('sensor.tradfri_main_bulb_2_power') | float +
+                  states('sensor.tradfri_main_bulb_3_power') | float + 
+                  states('sensor.tradfri_main_bulb_4_power') | float) | round(2) }}"
+
+  - platform: template
+    sensors:
+      total_power:
+        friendly_name: "Total Power"
+        unit_of_measurement: 'W'
+        icon_template: mdi:speedometer
+        value_template: "{{ (states('sensor.tradfri_main_bulb_1_power') | float + 
+                  states('sensor.tradfri_main_bulb_2_power') | float +
+                  states('sensor.tradfri_main_bulb_3_power') | float + 
+                  states('sensor.tradfri_main_bulb_4_power') | float +
+                  states('sensor.tradfri_rgb_bulb_power') | float) | round(2) }}"
+
+
+###############################################################################
+#############################  UTILITY METER  #################################
+###############################################################################
+
+
+utility_meter:
+  tradfri_main_1_daily_energy:
+    source: sensor.tradfri_main_1_energy
+    cycle: daily
+  tradfri_main_1_monthly_energy:
+    source: sensor.tradfri_main_1_energy
+    cycle: monthly
+
+  tradfri_main_2_daily_energy:
+    source: sensor.tradfri_main_2_energy
+    cycle: daily
+  tradfri_main_2_monthly_energy:
+    source: sensor.tradfri_main_2_energy
+    cycle: monthly
+
+  tradfri_main_3_daily_energy:
+    source: sensor.tradfri_main_3_energy
+    cycle: daily
+  tradfri_main_3_monthly_energy:
+    source: sensor.tradfri_main_3_energy
+    cycle: monthly
+
+  tradfri_main_4_daily_energy:
+    source: sensor.tradfri_main_4_energy
+    cycle: daily
+  tradfri_main_4_monthly_energy:
+    source: sensor.tradfri_main_4_energy
+    cycle: monthly
+
+  tradfri_rgb_daily_energy:
+    source: sensor.tradfri_rgb_energy
+    cycle: daily
+  tradfri_rgb_monthly_energy:
+    source: sensor.tradfri_rgb_energy
+    cycle: monthly    
+
+  tradfri_main_daily_energy:
+    source: sensor.tradfri_main_energy
+    cycle: daily
+  tradfri_main_monthly_energy:
+    source: sensor.tradfri_main_energy
+    cycle: monthly
+
+  total_daily_energy:
+    source: sensor.total_energy
+    cycle: daily
+  total_monthly_energy:
+    source: sensor.total_energy
+    cycle: monthly
+
+    
 
 ###############################################################################
 #############################  BINARY SENSOR  #################################
@@ -593,7 +757,7 @@ weather:
 
 mqtt:
   discovery: true
-  broker: 192.168.0.202
+  broker: 192.168.0.203
 hacs:
   token: !secret HACS_github
 
@@ -615,6 +779,10 @@ logger:
   logs:
     homeassistant.bootstrap: info
     homeassistant.components.shell_command: fatal
+    homeassistant.components.zha: debug
+    zigpy: debug
+
+
 
 spotcast:
   sp_dc: !secret SP_DC
@@ -623,11 +791,18 @@ spotcast:
 frontend:
   themes: !include_dir_merge_named themes
 
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true
+      ledvance_provider: true
+      
+
 tts:
   - platform: google_translate
     service_name: google_say
     cache: true
-    base_url: http://192.168.0.202:8123
+    base_url: http://192.168.0.203:8123
     cache_dir: /tmp
 
 panel_iframe:
@@ -637,7 +812,7 @@ panel_iframe:
     icon: "mdi:waves"
   nodered:
     title: "Node-Red"
-    url: "http://192.168.0.202:1880"
+    url: "http://192.168.0.203:1880"
     icon: mdi:sitemap
 
 group: !include groups.yaml

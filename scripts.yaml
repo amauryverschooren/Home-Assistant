@@ -2,7 +2,7 @@ wake_up_tts:
   sequence:
   - service: media_player.volume_set
     data:
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
       volume_level: 0.2
   - service: homeassistant.turn_on
     data:
@@ -14,7 +14,7 @@ wake_up_tts:
       - light.wled_x_ring
   - service: media_player.play_media
     data:
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
       media_content_id: http://icecast.vrtcdn.be/mnm-high.mp3
       media_content_type: audio/mp3
   mode: single
@@ -44,7 +44,7 @@ tracker_away:
       title: Verlichting
   - service: media_player.media_stop
     data:
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
   - service: media_player.media_stop
     data:
       entity_id: media_player.slaapkamer
@@ -96,7 +96,7 @@ all_off:
   - data:
       entity_id:
       - media_player.slaapkamer
-      - media_player.tech_garden
+      - media_player.nest_mini
     service: media_player.turn_off
   - data:
       entity_id:
@@ -108,11 +108,11 @@ dinner_ready:
   - data:
       volume_level: 0.6
     service: media_player.volume_set
-    entity_id: media_player.tech_garden
+    entity_id: media_player.nest_mini
   - data:
       message: Dinner is ready! Go downstairs!
       language: en
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
     service: tts.google_say
   mode: single
 dinner_ready2:
@@ -121,11 +121,11 @@ dinner_ready2:
   - data:
       volume_level: 0.6
     service: media_player.volume_set
-    entity_id: media_player.tech_garden
+    entity_id: media_player.nest_mini
   - data:
       message: Dinner is served, would you like to go downstairs?
       language: en
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
     service: tts.cloud_say
   mode: single
 dinner_ready3:
@@ -134,11 +134,11 @@ dinner_ready3:
   - data:
       volume_level: 0.6
     service: media_player.volume_set
-    entity_id: media_player.tech_garden
+    entity_id: media_player.nest_mini
   - data:
       message: Food is ready, you can come and eat if you want.
       language: en
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
     service: tts.cloud_say
   mode: single
 lunch_ready:
@@ -147,11 +147,11 @@ lunch_ready:
   - data:
       volume_level: 0.6
     service: media_player.volume_set
-    entity_id: media_player.tech_garden
+    entity_id: media_player.nest_mini
   - data:
       message: Are you hungry? Lunch is ready!
       language: en
-      entity_id: media_player.tech_garden
+      entity_id: media_player.nest_mini
     service: tts.google_say
   mode: single
 good_morning:

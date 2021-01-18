@@ -1,15 +1,11 @@
-#####################################################################
-############################# THEMES ################################
-#####################################################################
-- alias: 'ring doorbell'
+- alias: ring doorbell
   trigger:
   - platform: template
     value_template: '{{0>1}}'
   action:
   - data: {}
     service: script.doorbell
-
-
+  id: 3eb63158c5444b599dffb9a182c05697
 - id: alarm_1_weekday
   alias: Wake me up (weekday)
   trigger:
@@ -18,3 +14,78 @@
   action:
   - data: {}
     service: script.good_morning
+- id: '1610293425668'
+  alias: ZHA - IKEA five button remote
+  description: ''
+  use_blueprint:
+    path: wormie_dk/zha-ikea-five-button-remote.yaml
+    input:
+      remote: 769848923c2c8e90bed47e27442db5b6
+      button_on_off:
+      - service: homeassistant.toggle
+        data: {}
+        entity_id: group.tradfri_main_bulbs
+      button_brightness_up_short:
+      - type: brightness_increase
+        device_id: 44a2f773892a15a0526f7de0ed21ed8f
+        entity_id: light.tradfri_main_bulb_1
+        domain: light
+      - type: brightness_increase
+        device_id: e56c862ce0deec515aea336dfbda6a00
+        entity_id: light.tradfri_main_bulb_2
+        domain: light
+      - type: brightness_increase
+        device_id: f31617b8e91a0344d1dd4eb8ad73c4d0
+        entity_id: light.tradfri_main_bulb_3
+        domain: light
+      - type: brightness_increase
+        device_id: 92a4f1beac8d7d8f181127d115c7d70e
+        entity_id: light.tradfri_main_bulb_4
+        domain: light
+      button_brightness_down_short:
+      - type: brightness_decrease
+        device_id: 44a2f773892a15a0526f7de0ed21ed8f
+        entity_id: light.tradfri_main_bulb_1
+        domain: light
+      - type: brightness_decrease
+        device_id: e56c862ce0deec515aea336dfbda6a00
+        entity_id: light.tradfri_main_bulb_2
+        domain: light
+      - type: brightness_decrease
+        device_id: f31617b8e91a0344d1dd4eb8ad73c4d0
+        entity_id: light.tradfri_main_bulb_3
+        domain: light
+      - type: brightness_decrease
+        device_id: 92a4f1beac8d7d8f181127d115c7d70e
+        entity_id: light.tradfri_main_bulb_4
+        domain: light
+- id: '1610297778914'
+  alias: ZHA - IKEA five button remote
+  description: ''
+  use_blueprint:
+    path: wormie_dk/zha-ikea-five-button-remote.yaml
+    input:
+      remote: 769848923c2c8e90bed47e27442db5b6
+      button_on_off:
+      - type: turn_on
+        device_id: 44a2f773892a15a0526f7de0ed21ed8f
+        entity_id: light.tradfri_main_bulb_1
+        domain: light
+        brightness_pct: 255
+- id: '1610298679375'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger:
+  - device_id: 769848923c2c8e90bed47e27442db5b6
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 44a2f773892a15a0526f7de0ed21ed8f
+    entity_id: light.tradfri_main_bulb_1
+    domain: light
+    brightness_pct: 100
+  mode: single
